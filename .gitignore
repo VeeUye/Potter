@@ -1,0 +1,63 @@
+# env
+.env
+.env.local
+
+# https
+/https
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# infra
+/infrastructure/tmp/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# vercel
+.vercel
+
+bin
+obj
+
+node_modules
+dist
+artifacts
+*.user
+*.log
+
+.vs
+.vscode
+.idea
+
+# typescript
+tsconfig.tsbuildinfo
+
+# Cypress
+/acceptance-tests-cypress/cypress/screenshots
+
+# Storybook
+/storybook-static
+
+# Https
+/https/
+
+certificates
