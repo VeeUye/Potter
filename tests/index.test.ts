@@ -9,10 +9,28 @@ import ShoppingCart from "../src";
 //     5 different books: 25% discount
 
 
+const stubbedData = [
+    [1, 8],
+    [2, 16],
+    [3, 24],
+    [4, 32],
+    [5, 40],
+    [10, 80]
+]
+
 describe('PotterKata', () => {
     it('charges the correct amount for a single book', () => {
         const cart = new ShoppingCart();
-        cart.addBook(`First Book`)
+        cart.addBook(`First Book`, 1)
         expect(cart.total()).toBe(8)
     })
+
+
+    it.each(stubbedData)('charges the correct amount for multiple amounts of the same book', (quantity, expectedTotal) => {
+        const cart = new ShoppingCart();
+        cart.addBook('First Book', quantity)
+        expect(cart.total()).toBe(expectedTotal)
+    });
+
+
 });

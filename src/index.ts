@@ -6,8 +6,10 @@ class ShoppingCart {
         this.cart = []
     }
     
-    addBook(title: string) {
-        this.cart.push(title)
+    addBook(title: string, quantity: number) {
+        for (let i = 0; i < quantity; i++) {
+            this.cart.push(title)
+        }
     }
 
     total() {
