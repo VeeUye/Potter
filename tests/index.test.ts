@@ -9,7 +9,7 @@ import ShoppingCart from "../src";
 //     5 different books: 25% discount
 
 
-const stubbedData = [
+const stubbedQuantitiesOfTheSameBook = [
     [1, 8],
     [2, 16],
     [3, 24],
@@ -17,6 +17,8 @@ const stubbedData = [
     [5, 40],
     [10, 80]
 ]
+
+
 
 describe('PotterKata', () => {
     it('charges the correct amount for a single book', () => {
@@ -26,18 +28,18 @@ describe('PotterKata', () => {
     })
 
 
-    it.each(stubbedData)('charges the correct amount for multiple amounts of the same book', (quantity, expectedTotal) => {
+    it.each(stubbedQuantitiesOfTheSameBook)('charges the correct amount for multiple amounts of the same book', (quantity, expectedTotal) => {
         const cart = new ShoppingCart();
         cart.addBooks([{title: 'First book', quantity: quantity}])
 
         expect(cart.total()).toBe(expectedTotal)
     });
 
-   // xit('charges the correct amount for 2 different books in the series', () => {
-   //      const cart = new ShoppingCart()
-   //      cart.addBook('First Book', 2)
-   //      expect(cart.total()).toBe(15.2)
-   //  })
+   it('charges the correct amount for 2 different books in the series', () => {
+        const cart = new ShoppingCart()
+        cart.addBooks()
+        expect(cart.total()).toBe(15.2)
+    })
 
 
 });
