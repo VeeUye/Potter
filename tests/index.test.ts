@@ -10,6 +10,7 @@ import ShoppingCart from "../src";
 
 
 const stubbedQuantitiesOfTheSameBook = [
+    [0, 0],
     [1, 8],
     [2, 16],
     [3, 24],
@@ -20,29 +21,55 @@ const stubbedQuantitiesOfTheSameBook = [
 
 const twoDifferentTitles = [
     {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 }
+    {title: 'Second book', quantity: 1 }
+]
+
+const multipleQuantitiesOfTwoDifferentTitles = [
+    {title: 'First book', quantity: 3 },
+    {title: 'Second book', quantity: 1 }
 ]
 
 const threeDifferentTitles = [
     {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 }
+    {title: 'Second book', quantity: 1 },
+    {title: 'Third book', quantity: 1 }
+]
+
+const multipleQuantitiesOfThreeDifferentTitles = [
+    {title: 'First book', quantity: 3 },
+    {title: 'Second book', quantity: 7 },
+    {title: 'Third book', quantity: 1 }
 ]
 
 const fourDifferentTitles = [
     {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 }
+    {title: 'Second book', quantity: 1 },
+    {title: 'Third book', quantity: 1 },
+    {title: 'Fourth book', quantity: 1 }
 ]
+
+const multipleQuantitiesOfFourDifferentTitles = [
+    {title: 'First book', quantity: 2 },
+    {title: 'Second book', quantity: 3 },
+    {title: 'Third book', quantity: 1 },
+    {title: 'Fourth book', quantity: 2 }
+];
 
 const fiveDifferentTitles = [
     {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 },
-    {title: 'First book', quantity: 1 }
+    {title: 'Second book', quantity: 1 },
+    {title: 'Third book', quantity: 1 },
+    {title: 'Fourth book', quantity: 1 },
+    {title: 'Fifth book', quantity: 1 }
 ]
+
+const multipleQuantitiesOfFiveDifferentTitles = [
+    {title: 'First book', quantity: 1 },
+    {title: 'Second book', quantity: 2 },
+    {title: 'Third book', quantity: 1 },
+    {title: 'Fourth book', quantity: 2 },
+    {title: 'Fifth book', quantity: 1 }
+];
 
 
 
@@ -85,5 +112,30 @@ describe('PotterKata', () => {
         expect(cart.total()).toBe(30)
     })
 
+
+    it('charges the correct amount for multiple quantities of 2 different books in the series', () => {
+        const cart = new ShoppingCart()
+        cart.addBooks(multipleQuantitiesOfTwoDifferentTitles)
+        expect(cart.total()).toBe(30.4)
+    })
+
+    it('charges the correct amount for multiple quantities of 3 different books in the series', () => {
+        const cart = new ShoppingCart()
+        cart.addBooks(multipleQuantitiesOfThreeDifferentTitles)
+        expect(cart.total()).toBe(79.2)
+    })
+
+    it('charges the correct amount for multiple quantities of 4 different books in the series', () => {
+        const cart = new ShoppingCart()
+        cart.addBooks(multipleQuantitiesOfFourDifferentTitles)
+        expect(cart.total()).toBe(51.2)
+    })
+
+
+    it('charges the correct amount for multiple quantities of 5 different books in the series', () => {
+        const cart = new ShoppingCart()
+        cart.addBooks(multipleQuantitiesOfFiveDifferentTitles)
+        expect(cart.total()).toBe(42)
+    })
 
 });
