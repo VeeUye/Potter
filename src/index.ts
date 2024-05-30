@@ -13,11 +13,15 @@ class ShoppingCart {
     }
 
     totalDiscount() {
-    const numberOfDifferentTitles = this.cart.length
-        if(numberOfDifferentTitles !==2){
-            return 1
+        const discountMap: {[key: number]: number} = {
+            2: 0.95,
+            3: 0.90,
         }
-        return 0.95
+
+
+    const numberOfDifferentTitles = this.cart.length
+
+        return discountMap[numberOfDifferentTitles] || 1
 
 }
 
