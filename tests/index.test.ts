@@ -21,16 +21,23 @@ const stubbedData = [
 describe('PotterKata', () => {
     it('charges the correct amount for a single book', () => {
         const cart = new ShoppingCart();
-        cart.addBook(`First Book`, 1)
+        cart.addBooks([{title: `First Book`, quantity: 1} ])
         expect(cart.total()).toBe(8)
     })
 
 
     it.each(stubbedData)('charges the correct amount for multiple amounts of the same book', (quantity, expectedTotal) => {
         const cart = new ShoppingCart();
-        cart.addBook('First Book', quantity)
+        cart.addBooks([{title: 'First book', quantity: quantity}])
+
         expect(cart.total()).toBe(expectedTotal)
     });
+
+   // xit('charges the correct amount for 2 different books in the series', () => {
+   //      const cart = new ShoppingCart()
+   //      cart.addBook('First Book', 2)
+   //      expect(cart.total()).toBe(15.2)
+   //  })
 
 
 });
