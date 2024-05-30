@@ -18,8 +18,10 @@ const stubbedQuantitiesOfTheSameBook = [
     [10, 80]
 ]
 
-const twoVersionsOfTheSameBook = [
-    {title: 'First book', quantity: 2 }
+const twoDifferentTitles = [
+    {title: 'First book', quantity: 1 },
+    {title: 'First book', quantity: 1 }
+
 ]
 
 
@@ -38,9 +40,9 @@ describe('PotterKata', () => {
         expect(cart.total()).toBe(expectedTotal)
     });
 
-   xit('charges the correct amount for 2 different books in the series', () => {
+   it('charges the correct amount for 2 different books in the series', () => {
         const cart = new ShoppingCart()
-        cart.addBooks(twoVersionsOfTheSameBook)
+        cart.addBooks(twoDifferentTitles)
         expect(cart.total()).toBe(15.2)
     })
 

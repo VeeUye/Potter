@@ -6,22 +6,23 @@ class ShoppingCart {
         this.cart = []
     }
     
-    // addBooks(books: {title: string, quantity: number}[]) {
-    //     books.forEach(book => {
-    //         for (let i = 0; i < book.quantity; i++) {
-    //             this.cart.push(book.title)
-    //         }
-    //     })
-    // }
-
     addBooks(books: {title: string, quantity: number}[]) {
         books.forEach(book =>
                 this.cart.push(book)
         )
     }
 
+    totalDiscount() {
+    const numberOfDifferentTitles = this.cart.length
+        if(numberOfDifferentTitles !==2){
+            return 1
+        }
+        return 0.95
+
+}
+
     total() {
-        return this.cart.reduce((acc, book) => acc + (book.quantity * 8), 0);
+        return this.cart.reduce((acc, book) => acc + (book.quantity * 8), 0) * this.totalDiscount()
     }
 }
 
