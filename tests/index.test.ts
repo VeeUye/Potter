@@ -1,5 +1,7 @@
 import ShoppingCart from "../src";
 
+import { Book } from '../src/index'
+
 // There are 5 different books in the Harry Potter series.
 //     Each book costs 8 EUR.
 //     Discounts are given based on the number of distinct titles:
@@ -19,43 +21,43 @@ const stubbedQuantitiesOfTheSameBook = [
     [10, 80]
 ]
 
-const twoDifferentTitles = [
+const twoDifferentTitles: Book[] = [
     {title: 'First book', quantity: 1 },
     {title: 'Second book', quantity: 1 }
 ]
 
-const multipleQuantitiesOfTwoDifferentTitles = [
+const multipleQuantitiesOfTwoDifferentTitles: Book[] = [
     {title: 'First book', quantity: 3 },
     {title: 'Second book', quantity: 1 }
 ]
 
-const threeDifferentTitles = [
+const threeDifferentTitles: Book[] = [
     {title: 'First book', quantity: 1 },
     {title: 'Second book', quantity: 1 },
     {title: 'Third book', quantity: 1 }
 ]
 
-const multipleQuantitiesOfThreeDifferentTitles = [
+const multipleQuantitiesOfThreeDifferentTitles: Book[] = [
     {title: 'First book', quantity: 3 },
     {title: 'Second book', quantity: 7 },
     {title: 'Third book', quantity: 1 }
 ]
 
-const fourDifferentTitles = [
+const fourDifferentTitles: Book[] = [
     {title: 'First book', quantity: 1 },
     {title: 'Second book', quantity: 1 },
     {title: 'Third book', quantity: 1 },
     {title: 'Fourth book', quantity: 1 }
 ]
 
-const multipleQuantitiesOfFourDifferentTitles = [
+const multipleQuantitiesOfFourDifferentTitles: Book[] = [
     {title: 'First book', quantity: 2 },
     {title: 'Second book', quantity: 3 },
     {title: 'Third book', quantity: 1 },
     {title: 'Fourth book', quantity: 2 }
 ];
 
-const fiveDifferentTitles = [
+const fiveDifferentTitles: Book[] = [
     {title: 'First book', quantity: 1 },
     {title: 'Second book', quantity: 1 },
     {title: 'Third book', quantity: 1 },
@@ -63,7 +65,7 @@ const fiveDifferentTitles = [
     {title: 'Fifth book', quantity: 1 }
 ]
 
-const multipleQuantitiesOfFiveDifferentTitles = [
+const multipleQuantitiesOfFiveDifferentTitles: Book[] = [
     {title: 'First book', quantity: 1 },
     {title: 'Second book', quantity: 2 },
     {title: 'Third book', quantity: 1 },
@@ -76,7 +78,7 @@ const multipleQuantitiesOfFiveDifferentTitles = [
 describe('PotterKata', () => {
     it('charges the correct amount for a single book', () => {
         const cart = new ShoppingCart();
-        cart.addBooks([{title: `First Book`, quantity: 1} ])
+        cart.addBooks([{title: `First book`, quantity: 1} ])
         expect(cart.total()).toBe(8)
     })
 

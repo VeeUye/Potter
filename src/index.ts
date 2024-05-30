@@ -1,18 +1,25 @@
 
+type title = 'First book' | 'Second book' | 'Third book' | 'Fourth book' | 'Fifth book'
+
+export interface Book {
+    title: title
+    quantity: number
+}
+
 class ShoppingCart {
-    private cart: {title: string, quantity: number}[];
+    private cart: Book[]
 
     constructor() {
         this.cart = []
     }
     
-    addBooks(books: {title: string, quantity: number}[]) {
+    addBooks(books:Book[]) {
         books.forEach(book =>
                 this.cart.push(book)
         )
     }
 
-    totalDiscount() {
+    discountFactor() {
         const discountMap: {[key: number]: number} = {
             2: 0.95,
             3: 0.90,
@@ -28,7 +35,7 @@ class ShoppingCart {
 }
 
     total() {
-        return this.cart.reduce((acc, book) => acc + (book.quantity * 8), 0) * this.totalDiscount()
+        return this.cart.reduce((acc, book) => acc + (book.quantity * 8), 0) * this.discountFactor()
     }
 }
 
