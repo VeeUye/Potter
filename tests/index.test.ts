@@ -36,6 +36,15 @@ const fourDifferentTitles = [
     {title: 'First book', quantity: 1 }
 ]
 
+const fiveDifferentTitles = [
+    {title: 'First book', quantity: 1 },
+    {title: 'First book', quantity: 1 },
+    {title: 'First book', quantity: 1 },
+    {title: 'First book', quantity: 1 },
+    {title: 'First book', quantity: 1 }
+]
+
+
 
 describe('PotterKata', () => {
     it('charges the correct amount for a single book', () => {
@@ -69,5 +78,12 @@ describe('PotterKata', () => {
         cart.addBooks(fourDifferentTitles)
         expect(cart.total()).toBe(25.6)
     })
+
+    it('charges the correct amount for 5 different books in the series', () => {
+        const cart = new ShoppingCart()
+        cart.addBooks(fiveDifferentTitles)
+        expect(cart.total()).toBe(30)
+    })
+
 
 });
