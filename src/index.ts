@@ -16,6 +16,7 @@ class ShoppingCart {
         const discountMap: {[key: number]: number} = {
             2: 0.95,
             3: 0.90,
+            4: 0.80,
         }
 
 
