@@ -35,7 +35,7 @@ class ShoppingCart {
             return books;
         }
 
-        const createDistinctTitleGroups = (books: Book[]) => {
+        const createOptimumDiscountGroups = (books: Book[]) => {
             let titles = titlesOf(books);
 
             let groups = [];
@@ -59,21 +59,19 @@ class ShoppingCart {
 
             return groups
         }
-        const calculatePriceOfTitleGroup = (books: Book[]) => {
+        const calculatePricesOfDiscountGroups = (books: Book[]) => {
             let total = 0;
 
-
-            createDistinctTitleGroups(books).forEach(groupSize => {
+            createOptimumDiscountGroups(books).forEach(groupSize => {
                 total += groupSize * bookPrice * (1 - discounts[groupSize - 1]);
             });
 
             return total;
         }
 
-        return calculatePriceOfTitleGroup(this.cart);
+        return calculatePricesOfDiscountGroups(this.cart);
 
     }
-
 
 }
 
