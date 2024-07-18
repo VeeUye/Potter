@@ -127,32 +127,32 @@ describe('PotterKata', () => {
     it('charges the correct amount for multiple quantities of 2 different books in the series', () => {
         const cart = new ShoppingCart()
         cart.addBooks(multipleQuantitiesOfTwoDifferentTitles)
-        expect(cart.total()).toBe(29.6)
+        expect(cart.total()).toBe(31.2)
     })
 
-    xit('charges the correct amount for multiple quantities of 3 different books in the series', () => {
+    it('charges the correct amount for multiple quantities of 3 different books in the series', () => {
         const cart = new ShoppingCart()
         cart.addBooks(multipleQuantitiesOfThreeDifferentTitles)
-        expect(cart.total()).toBe(71.6)
+        expect(cart.total()).toBe(84)
     })
 
-    xit('charges the correct amount for multiple quantities of 4 different books in the series', () => {
+    it('charges the correct amount for multiple quantities of 4 different books in the series', () => {
         const cart = new ShoppingCart()
         cart.addBooks(multipleQuantitiesOfFourDifferentTitles)
         expect(cart.total()).toBe(55.2)
     })
 
 
-    xit('charges the correct amount for multiple quantities of 5 different books in the series', () => {
+    it('charges the correct amount for multiple quantities of 5 different books in the series', () => {
         const cart = new ShoppingCart()
         cart.addBooks(multipleQuantitiesOfFiveDifferentTitles)
         expect(cart.total()).toBe(45.2)
     })
 
-    xit('charges the correct amount for the test examples', () => {
+    it('charges the correct amount for the test examples', () => {
         const cart = new ShoppingCart()
         cart.addBooks(givenExamples)
-        expect(cart.total()).toBe(42)
+        expect(cart.total()).toBe(51.2)
     })
 
 });

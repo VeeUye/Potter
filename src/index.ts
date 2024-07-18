@@ -19,24 +19,56 @@ class ShoppingCart {
         )
     }
 
-    discountFactor() {
-        const discountMap: {[key: number]: number} = {
-            2: 0.95,
-            3: 0.90,
-            4: 0.80,
-            5: 0.75
+    total() {
+
+        const bookPrice = 8;
+        const discounts = [0, 0.05, 0.1, 0.2, 0.25];
+
+        const titlesOf = (purchasedBooks: Book[]) => {
+            let books: string[] = [];
+            purchasedBooks.forEach(book => {
+                for (let i = 0; i < book.quantity; i++) {
+                    books.push(book.title);
+                }
+            });
+
+            return books;
+        }
+        const calculatePriceOfDistinctTitleGroup = (books:Book[]) => {
+            let titles = titlesOf(books);
+            let total = 0;
+
+            let groups = [];
+
+            while (titles.length > 0) {
+                let group = [];
+                let distinctBooks = new Set(titles);
+                distinctBooks.forEach(book => {
+                    group.push(book);
+                    const index = titles.indexOf(book);
+                    titles.splice(index, 1);
+                });
+                groups.push(group.length);
+            }
+
+            while (groups.includes(5) && groups.includes(3)) {
+                groups.splice(groups.indexOf(5), 1);
+                groups.splice(groups.indexOf(3), 1);
+                groups.push(4, 4);
+            }
+
+            groups.forEach(groupSize => {
+                total += groupSize * bookPrice * (1 - discounts[groupSize - 1]);
+            });
+
+            return total;
         }
 
+        return calculatePriceOfDistinctTitleGroup(this.cart);
 
-    const numberOfDifferentTitles = this.cart.length
-
-        return discountMap[numberOfDifferentTitles] || 1
-
-}
-
-    total() {
-        return this.cart.reduce((acc, book) => acc + (book.quantity * 8), 0) * this.discountFactor()
     }
+
+
 }
 
 export default ShoppingCart
