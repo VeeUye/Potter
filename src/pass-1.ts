@@ -1,4 +1,3 @@
-
 type title = 'First book' | 'Second book' | 'Third book' | 'Fourth book' | 'Fifth book'
 
 export interface Book {
@@ -12,10 +11,10 @@ class ShoppingCart {
     constructor() {
         this.cart = []
     }
-    
-    addBooks(books:Book[]) {
+
+    addBooks(books: Book[]) {
         books.forEach(book =>
-                this.cart.push(book)
+            this.cart.push(book)
         )
     }
 

@@ -7,6 +7,8 @@
 //     5 different books: 25% discount
 
 
+import ShoppingCart from "../src/pass-2";
+
 const stubbedQuantitiesOfTheSameBook = [
     [0, 0],
     [1, 8],
@@ -18,55 +20,55 @@ const stubbedQuantitiesOfTheSameBook = [
 ]
 
 const twoDifferentTitles = [
-    {title: 'First book', quantity: 1 },
-    {title: 'Second book', quantity: 1 }
+    {title: 'First book', quantity: 1},
+    {title: 'Second book', quantity: 1}
 ]
 
 const multipleQuantitiesOfTwoDifferentTitles = [
-    {title: 'First book', quantity: 3 },
-    {title: 'Second book', quantity: 1 }
+    {title: 'First book', quantity: 3},
+    {title: 'Second book', quantity: 1}
 ]
 
 const threeDifferentTitles = [
-    {title: 'First book', quantity: 1 },
-    {title: 'Second book', quantity: 1 },
-    {title: 'Third book', quantity: 1 }
+    {title: 'First book', quantity: 1},
+    {title: 'Second book', quantity: 1},
+    {title: 'Third book', quantity: 1}
 ]
 
 const multipleQuantitiesOfThreeDifferentTitles = [
-    {title: 'First book', quantity: 3 },
-    {title: 'Second book', quantity: 7 },
-    {title: 'Third book', quantity: 1 }
+    {title: 'First book', quantity: 3},
+    {title: 'Second book', quantity: 7},
+    {title: 'Third book', quantity: 1}
 ]
 
 const fourDifferentTitles = [
-    {title: 'First book', quantity: 1 },
-    {title: 'Second book', quantity: 1 },
-    {title: 'Third book', quantity: 1 },
-    {title: 'Fourth book', quantity: 1 }
+    {title: 'First book', quantity: 1},
+    {title: 'Second book', quantity: 1},
+    {title: 'Third book', quantity: 1},
+    {title: 'Fourth book', quantity: 1}
 ]
 
 const multipleQuantitiesOfFourDifferentTitles = [
-    {title: 'First book', quantity: 2 },
-    {title: 'Second book', quantity: 3 },
-    {title: 'Third book', quantity: 1 },
-    {title: 'Fourth book', quantity: 2 }
+    {title: 'First book', quantity: 2},
+    {title: 'Second book', quantity: 3},
+    {title: 'Third book', quantity: 1},
+    {title: 'Fourth book', quantity: 2}
 ];
 
 const fiveDifferentTitles = [
-    {title: 'First book', quantity: 1 },
-    {title: 'Second book', quantity: 1 },
-    {title: 'Third book', quantity: 1 },
-    {title: 'Fourth book', quantity: 1 },
-    {title: 'Fifth book', quantity: 1 }
+    {title: 'First book', quantity: 1},
+    {title: 'Second book', quantity: 1},
+    {title: 'Third book', quantity: 1},
+    {title: 'Fourth book', quantity: 1},
+    {title: 'Fifth book', quantity: 1}
 ]
 
 const multipleQuantitiesOfFiveDifferentTitles = [
-    {title: 'First book', quantity: 1 },
-    {title: 'Second book', quantity: 2 },
-    {title: 'Third book', quantity: 1 },
-    {title: 'Fourth book', quantity: 2 },
-    {title: 'Fifth book', quantity: 1 }
+    {title: 'First book', quantity: 1},
+    {title: 'Second book', quantity: 2},
+    {title: 'Third book', quantity: 1},
+    {title: 'Fourth book', quantity: 2},
+    {title: 'Fifth book', quantity: 1}
 ];
 
 const givenExamples = [
@@ -79,10 +81,11 @@ const givenExamples = [
 ]
 
 
-
 describe('PotterKata', () => {
     it('charges the correct amount for a single book', () => {
+        const cart = new ShoppingCart()
 
+        expect(cart.total()).toEqual(8)
     })
 
 
@@ -93,7 +96,7 @@ describe('PotterKata', () => {
     //     expect(cart.total()).toBe(expectedTotal)
     // });
 
-   it('charges the correct amount for 2 different books in the series', () => {
+    it('charges the correct amount for 2 different books in the series', () => {
         // const cart = new ShoppingCart()
         // cart.addBooks(twoDifferentTitles)
         // expect(cart.total()).toBe(15.2)
