@@ -10,7 +10,9 @@ class ShoppingCart {
     }
 
     total() {
-        return this.cart.length * 8
+        const baseBookPrice = 8;
+        
+        return this.cart.length * baseBookPrice
     }
 }
 
