@@ -9,6 +9,19 @@
 
 import ShoppingCart from "../src/pass-2";
 
+const stubbedQuantitiesOfTheSameBook = [
+    [0, 0],
+    [1, 8],
+    [2, 16],
+    [3, 24],
+    [4, 32],
+    [5, 40],
+    [10, 80],
+    [99, 792]
+]
+
+const addTitles = (array: string[], title: string, times: number) => array.push(...new Array(times).fill(title))
+
 describe('PotterKata', () => {
     it('charges the correct amount for a single book', () => {
         const cart = new ShoppingCart()
@@ -40,5 +53,19 @@ describe('PotterKata', () => {
         cart.addBooks(['First book', 'First book', 'First book', 'First book', 'First book', 'First book', "First book", "First book"])
 
         expect(cart.total()).toEqual(64)
+    })
+
+    it.each(stubbedQuantitiesOfTheSameBook)('it charges the correct amount for multiple copies of the same title', (number, expectedPrice) => {
+        const cart = new ShoppingCart()
+        
+        const books: string[] = [];
+        const title = 'First book'
+
+        addTitles(books, title, number);
+
+        cart.addBooks(books)
+
+        expect(cart.total()).toEqual(expectedPrice)
+
     })
 })
