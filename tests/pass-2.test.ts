@@ -97,4 +97,12 @@ describe('PotterKata', () => {
 
         expect(cart.total()).toEqual(16)
     })
+
+    it('charges the correct amount for three books of the same title', () => {
+        const cart = new ShoppingCart()
+
+        cart.addBooks(['First book', 'First book', 'First book'])
+
+        expect(cart.total()).toEqual(24)
+    })
 })
